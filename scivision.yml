@@ -5,4 +5,3 @@ sources:
       driver: intake_xarray.image.ImageSource
       args:
         urlpath: 'https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/data/2014-06-06_plant001_rgb.png'
-'
