@@ -39,6 +39,8 @@ class MapReader_model:
                       path2save: str="./tmp/scivision_model.pkl"):
         
         
+        os.makedirs(os.path.dirname(path2save), exist_ok=True)
+        
         r = requests.get(url, stream=True)
         with open(path2save, 'wb') as f:
             for chunk in r.iter_content(chunk_size=1024): 
