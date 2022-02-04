@@ -5,11 +5,12 @@ from mapreader import load_patches
 from mapreader import patchTorchDataset
 import numpy as np
 import os
+import requests
 
 class MapReader_model:
     
     def __init__(self, 
-                 model_path: str="./checkpoint_15.pkl", 
+                 model_path: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/checkpoint_15.pkl", 
                  device: str="default", 
                  tmp_dir: str="./tmp_slice",
                  batch_size: int=64,
@@ -18,19 +19,33 @@ class MapReader_model:
         self.tmp_dir = tmp_dir
         self.batch_size = batch_size
         self._resize2 = 224
+
+        self.download_file(model_path)
         
         # ---- CLASSIFIER
         # e.g., model_path = "./models_tutorial/checkpoint_1.pkl"
         myclassifier = classifier(device=device)
-        myclassifier.load(model_path)
+        myclassifier.load("./tmp/scivision_model.pkl")
 
         self.pretrained_model = myclassifier
         
         # ---- PREPROCESSOR
         self.data_transforms = self.preprocess()
-        
-
     
+
+    # Method to download large files from github 
+    def download_file(self, 
+                      url: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/checkpoint_15.pkl",
+                      path2save: str="./tmp/scivision_model.pkl"):
+        
+        
+        r = requests.get(url, stream=True)
+        with open(path2save, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=1024): 
+                if chunk:
+                    f.write(chunk)
+        f.close()
+
     def load_images(self, 
                     path2images: str,
                     slice_size: int=100,
