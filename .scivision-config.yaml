@@ -8,6 +8,5 @@ prediction_fn:
     call: predict
     args:
         X: path2images
-        
     kwargs: 
         slice_size: slice_size
