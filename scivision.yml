@@ -1,7 +1,7 @@
 sources:
-  plant_example:
+  plant_single:
       description: Load example images of plant from open access CVPPP2014_LSV_training_data dataset
       origin: 
       driver: intake_xarray.image.ImageSource
       args:
-        urlpath: 'https://raw.githubusercontent.com/alan-turing-institute/mapreader-plant-scivision/tree/main/data/*.png'
+        urlpath: 'https://github.com/alan-turing-institute/mapreader-plant-scivision/blob/main/data/2014-06-06_plant001_rgb.png'
