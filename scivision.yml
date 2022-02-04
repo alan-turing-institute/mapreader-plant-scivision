@@ -4,4 +4,4 @@ sources:
       origin: 
       driver: intake_xarray.image.ImageSource
       args:
-        urlpath: 'https://github.com/Living-with-machines/MapReader/tree/main/examples/classification_plant_phenotype/dataset/open_access_plant/*.png'
+        urlpath: 'https://raw.githack.com/Living-with-machines/MapReader/tree/main/examples/classification_plant_phenotype/dataset/open_access_plant/*.png'
