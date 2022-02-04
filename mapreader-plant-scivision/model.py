@@ -9,7 +9,7 @@ import os
 class MapReader_model:
     
     def __init__(self, 
-                 model_path: str, 
+                 model_path: str="./checkpoint_15.pkl", 
                  device: str="default", 
                  tmp_dir: str="./tmp_slice",
                  batch_size: int=64,
