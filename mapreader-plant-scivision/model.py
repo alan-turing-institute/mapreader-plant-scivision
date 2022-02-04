@@ -10,7 +10,8 @@ import requests
 class MapReader_model:
     
     def __init__(self, 
-                 model_path: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/checkpoint_15.pkl", 
+                 model_path_1: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/checkpoint_15.pkl", 
+                 model_path_2: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/model_checkpoint_15.pkl", 
                  device: str="default", 
                  tmp_dir: str="./tmp_slice",
                  batch_size: int=64,
@@ -20,12 +21,13 @@ class MapReader_model:
         self.batch_size = batch_size
         self._resize2 = 224
 
-        self.download_file(model_path)
+        self.download_file(model_path_1, path2save="./tmp/checkpoint.pkl")
+        self.download_file(model_path_2, path2save="./tmp/model_checkpoint.pkl")
         
         # ---- CLASSIFIER
         # e.g., model_path = "./models_tutorial/checkpoint_1.pkl"
         myclassifier = classifier(device=device)
-        myclassifier.load("./tmp/scivision_model.pkl")
+        myclassifier.load("./tmp/checkpoint.pkl")
 
         self.pretrained_model = myclassifier
         
@@ -40,7 +42,7 @@ class MapReader_model:
         
         
         os.makedirs(os.path.dirname(path2save), exist_ok=True)
-        
+
         r = requests.get(url, stream=True)
         with open(path2save, 'wb') as f:
             for chunk in r.iter_content(chunk_size=1024): 
