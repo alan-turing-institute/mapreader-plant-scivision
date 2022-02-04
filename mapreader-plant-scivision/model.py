@@ -14,21 +14,23 @@ class MapReader_model:
                  model_path_1: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/checkpoint_15.pkl", 
                  model_path_2: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/model_checkpoint_15.pkl", 
                  device: str="default", 
-                 tmp_dir: str="./tmp_slice",
+                 tmp_dir: str="./mr_tmp/mr_tmp_slice",
                  batch_size: int=64,
                 ):
         
         self.tmp_dir = tmp_dir
+        os.makedirs(self.tmp_dir, exist_ok=True)
+
         self.batch_size = batch_size
         self._resize2 = 224
 
-        self.download_file(model_path_1, path2save="./tmp/checkpoint.pkl")
-        self.download_file(model_path_2, path2save="./tmp/model_checkpoint.pkl")
+        self.download_file(model_path_1, path2save="./mr_tmp/checkpoint.pkl")
+        self.download_file(model_path_2, path2save="./mr_tmp/model_checkpoint.pkl")
         
         # ---- CLASSIFIER
         # e.g., model_path = "./models_tutorial/checkpoint_1.pkl"
         myclassifier = classifier(device=device)
-        myclassifier.load("./tmp/checkpoint.pkl")
+        myclassifier.load("./mr_tmp/checkpoint.pkl")
 
         self.pretrained_model = myclassifier
         
@@ -39,7 +41,7 @@ class MapReader_model:
     # Method to download large files from github 
     def download_file(self, 
                       url: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/checkpoint_15.pkl",
-                      path2save: str="./tmp/scivision_model.pkl"):
+                      path2save: str="./mr_tmp/scivision_model.pkl"):
         
         
         os.makedirs(os.path.dirname(path2save), exist_ok=True)
@@ -58,8 +60,7 @@ class MapReader_model:
                    ):
         
 
-        path2images = "./tmp/orig_image.png"
-        os.makedirs("./tmp", exist_ok=True)
+        path2images = "./mr_tmp/orig_image.png"
         im = Image.fromarray(input_array.to_numpy())
         im.save(path2images)
 
@@ -77,8 +78,8 @@ class MapReader_model:
         
         # mean and standard deviations of pixel intensities in 
         # all the patches in 6", second edition maps
-        normalize_mean = 1 - np.array([0.82860442, 0.82515008, 0.77019864])
-        normalize_std = 1 - np.array([0.1025585, 0.10527616, 0.10039222])
+        normalize_mean = [0.485, 0.456, 0.406]
+        normalize_std = [0.229, 0.224, 0.225]
 
         data_transforms = {
             'val': transforms.Compose(
