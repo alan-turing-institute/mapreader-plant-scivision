@@ -9,7 +9,7 @@ with open("requirements.txt") as f:
             requirements.append(stripped)
 
 setup(
-    name="mapreader_model",
+    name="mapreader-plant-scivision",
     version="0.0.1",
     description="scivision test plugin, using mapreader",
     author="",
@@ -17,5 +17,5 @@ setup(
     url="https://github.com/alan-turing-institute/mapreader-plant-scivision",
     packages=find_packages(),
     install_requires=requirements,
-    python_requires=">=3.7",
+    python_requires="<3.8",
 )
