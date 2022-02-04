@@ -3,6 +3,8 @@ from mapreader import loader
 from torchvision import transforms
 from mapreader import load_patches
 from mapreader import patchTorchDataset
+import numpy as np
+import os
 
 class MapReader_model:
     
