@@ -6,6 +6,7 @@ from mapreader import patchTorchDataset
 import numpy as np
 import os
 import requests
+from PIL import Image
 
 class MapReader_model:
     
@@ -51,11 +52,17 @@ class MapReader_model:
         f.close()
 
     def load_images(self, 
-                    path2images: str,
+                    input_array: str,
                     slice_size: int=100,
                     **slice_kwds
                    ):
         
+
+        path2images = "./tmp/orig_image.png"
+        os.makedirs("./tmp", exist_ok=True)
+        im = Image.fromarray(input_array.to_numpy())
+        im.save(path2images)
+
         self.path2images = path2images
         self.image_name = os.path.basename(os.path.abspath(self.path2images))
         
