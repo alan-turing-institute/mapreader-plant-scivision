@@ -75,7 +75,9 @@ class MapReader_model:
         
         # ---- Save image
         self.save_image_path = save_image_path
-        im = Image.fromarray(input_array.to_numpy())
+        if not isinstance(input_array, np.ndarray):
+            input_array = np.array(input_array)
+        im = Image.fromarray(input_array)
         im.save(self.save_image_path)
 
         self.image_name = os.path.basename(os.path.abspath(self.save_image_path))
@@ -96,7 +98,7 @@ class MapReader_model:
         data_transforms = transforms.Compose(
             [transforms.Resize((self._resize2, self._resize2)),
              transforms.ToTensor(),
-             transforms.Normalize(normalize_mean, normalize_std)]),
+             transforms.Normalize(normalize_mean, normalize_std)])
         
         return data_transforms
     
