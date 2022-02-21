@@ -18,8 +18,8 @@ jobs:
         python-version: 3.8 
     - name: Install dependencies
       run: |
-        $CONDA/bin/pip install scivision 
+        python -m pip install scivision 
     - name: Test with pytest
       run: |
-        $CONDA/bin/conda install pytest
-        $CONDA/bin/pytest ./tests
+        python -m pip install pytest
+        python -m pytest ./tests
