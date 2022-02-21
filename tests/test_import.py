@@ -7,8 +7,8 @@ def test_workflow():
     
     try:
         model = load_pretrained_model(scivision_yml, allow_install=True)
-    except:
-        pass
+    except Exception as e:
+        print(f"EXCEPTION: {e}")
 
     cat = load_dataset('https://github.com/alan-turing-institute/mapreader-plant-scivision')
 
