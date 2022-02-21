@@ -3,12 +3,12 @@ name: Continuous integration
 on: [push, pull_request]
 
 jobs:
-  build-linux:
-    runs-on: ubuntu-latest
+  test:
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, windows-latest]
         python-version: [3.8]
+    runs-on: ${{ matrix.platform }}
 
     steps:
     - uses: actions/checkout@v2
