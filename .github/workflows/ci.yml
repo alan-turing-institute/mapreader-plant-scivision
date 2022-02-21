@@ -48,7 +48,8 @@ jobs:
   
       - name: Install dependencies  
         shell: bash  
-        run: |  
+        run: |
+          python -m poetry init  
           python -m poetry add scivision
           python -m poetry add jupyter
   
