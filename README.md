@@ -16,6 +16,11 @@ Install scivision:
 pip install scivision
 pip install jupyter
 ```
+Windows users may need to install git:
+
+```bash
+conda install git
+```
 
 Clone scivision repo as notebooks are stored on the repo:
 
