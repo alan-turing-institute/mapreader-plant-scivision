@@ -16,9 +16,14 @@ Install scivision:
 pip install scivision
 pip install jupyter
 ```
-Windows users may need to install git:
+Windows users may need to run the following:
 
 ```bash
+# install rasterio and fiona manually
+conda install -c conda-forge rasterio=1.2.10
+conda install -c conda-forge fiona=1.8.20
+
+# install git
 conda install git
 ```
 
