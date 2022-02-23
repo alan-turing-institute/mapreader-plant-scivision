@@ -7,5 +7,3 @@ prediction_fn:
     call: predict
     args:
         X: path2images
-        slice_size: slice_size
-        plot_output: plot_output
