@@ -7,7 +7,7 @@ sources:
         urlpath: ["https://raw.githubusercontent.com/alan-turing-institute/mapreader-plant-scivision/main/data/2014-06-06_plant001_rgb.png",
                   "https://raw.githubusercontent.com/alan-turing-institute/mapreader-plant-scivision/main/data/2014-07-17_plant047_rgb.png"]
    
-   plant_flower:
+  plant_flower:
       description: Load example images of flowering brassica napus plants in top down view from NPPC dataset
       origin: 
       driver: intake_xarray.image.ImageSource
