@@ -1,1 +1,1 @@
-mapreader @ git+https://github.com/Living-with-machines/MapReader.git@4ca1adb6afed62cbb31a377630747f8a810d7244
+mapreader @ git+https://github.com/Living-with-machines/MapReader.git@b1be3afab8da7821bf1a0332acd4872e16bca570
