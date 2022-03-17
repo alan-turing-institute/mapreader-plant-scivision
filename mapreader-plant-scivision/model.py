@@ -5,6 +5,7 @@ import numpy as np
 import os
 from PIL import Image
 import requests
+import timm
 from torchvision import transforms
 
 from mapreader import classifier
