@@ -15,8 +15,8 @@ from mapreader import patchTorchDataset
 class MapReader_model:
     
     def __init__(self, 
-                 model_path: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/model_checkpoint_15.pkl", 
-                 checkpoint_path: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/checkpoint_15.pkl", 
+                 model_path: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/model_checkpoint_7.pkl", 
+                 checkpoint_path: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/checkpoint_7.pkl", 
                  device: str="default", 
                  tmp_model_dir: str="./mr_tmp",
                  tmp_slice_dir: str="./mr_tmp/slice",
@@ -51,7 +51,7 @@ class MapReader_model:
         self.data_transforms = self.preprocess()
     
     def download_file(self, 
-                      url: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/checkpoint_15.pkl",
+                      url: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/checkpoint_7.pkl",
                       path2save: str="./mr_tmp/scivision_model.pkl",
                       chunk_size: int=1024
                       ):
