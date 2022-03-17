@@ -57,6 +57,8 @@ class MapReader_model:
                       chunk_size: int=1024
                       ):
         """Download a file from url to path2save."""
+        
+        print(f"[INFO] Download model from: {url}")
 
         os.makedirs(os.path.dirname(path2save), exist_ok=True)
 
@@ -66,6 +68,8 @@ class MapReader_model:
                 if chunk:
                     f.write(chunk)
         f.close()
+        
+        print(f"[INFO] Save model         : {path2save}")
 
     def load_image(self, 
                    input_array: str,
