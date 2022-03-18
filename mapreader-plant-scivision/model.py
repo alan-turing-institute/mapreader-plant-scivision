@@ -79,7 +79,7 @@ class MapReader_model:
     def load_image(self, 
                    input_array: str,
                    slice_size: int=100,
-                   save_image_path: [None, str]="./mr_tmp/orig_image.png",
+                   save_image_path: [None, str]=None,
                    **slice_kwds
                    ):
         
