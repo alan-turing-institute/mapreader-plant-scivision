@@ -129,7 +129,7 @@ class MapReader_model:
         # Create dataloader using batch_size, set num_workers to 0
         self.pretrained_model.add2dataloader(patches2infer_dataset, 
                                              set_name=self.infer_name, 
-                                             batch_size=len(patches2infer), 
+                                             batch_size=self.batch_size, 
                                              shuffle=False, 
                                              num_workers=0)
 
