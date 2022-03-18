@@ -79,11 +79,13 @@ class MapReader_model:
     def load_image(self, 
                    input_array: str,
                    slice_size: int=100,
-                   save_image_path: str="./mr_tmp/orig_image.png",
+                   save_image_path: [None, str]="./mr_tmp/orig_image.png",
                    **slice_kwds
                    ):
         
         # ---- Save image
+        if save_image_path is None:
+            save_image_path = os.path.join(self.tmp_model_dir, "orig_image.png")
         self.save_image_path = save_image_path
         if not isinstance(input_array, np.ndarray):
             input_array = np.array(input_array)
