@@ -103,7 +103,8 @@ class MapReader_model:
         data_transforms = transforms.Compose(
             [transforms.Resize((self._resize2, self._resize2)),
              transforms.ToTensor(),
-             transforms.Normalize(normalize_mean, normalize_std)])
+             #transforms.Normalize(normalize_mean, normalize_std)]
+        )
         
         return data_transforms
     
