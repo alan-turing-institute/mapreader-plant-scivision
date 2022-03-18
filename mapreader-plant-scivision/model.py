@@ -6,6 +6,7 @@ import os
 from PIL import Image
 import requests
 import timm
+import time
 from torchvision import transforms
 
 from mapreader import classifier
@@ -19,8 +20,8 @@ class MapReader_model:
                  model_path: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/model_checkpoint_10.pkl", 
                  checkpoint_path: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/checkpoint_10.pkl", 
                  device: str="default", 
-                 tmp_model_dir: str="./mr_tmp",
-                 tmp_slice_dir: str="./mr_tmp/slice",
+                 tmp_model_dir: [str, None]=None,
+                 tmp_slice_dir: [str, None]=None,
                  batch_size: int=64,
                  resize2: int=224,
                  infer_name: str="infer_test"
@@ -30,6 +31,10 @@ class MapReader_model:
         """
 
         # ---- SETUP
+        if tmp_model_dir is None:
+            tmp_model_dir = f"./mr_tmp_{int(time.time())}"
+            tmp_slice_dir = f"./{tmp_model_dir}/slice"
+            
         self.tmp_model_dir = tmp_model_dir
         self.tmp_slice_dir = tmp_slice_dir 
         os.makedirs(self.tmp_model_dir, exist_ok=True)
