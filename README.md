@@ -4,6 +4,8 @@ Example data for applying MapReader to classification of plant patches and runni
 
 ## Installation
 
+Make sure you have [git-lfs](https://git-lfs.com/) installed.
+
 Create a conda environment:
 
 ```bash
