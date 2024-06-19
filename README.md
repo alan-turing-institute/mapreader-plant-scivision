@@ -4,6 +4,8 @@ Example data for applying MapReader to classification of plant patches and runni
 
 ## Installation
 
+Make sure you have [git-lfs](https://git-lfs.com/) installed.
+
 Create a conda environment:
 
 ```bash
@@ -28,17 +30,6 @@ conda install -c conda-forge fiona=1.8.20
 conda install git
 ```
 
-Clone scivision repo as notebooks are stored on the repo:
+## Running an example notebook
 
-```
-git clone https://github.com/alan-turing-institute/scivision.git
-```
-
-Go to the scivision repo and open jupyter notebook:
-
-```bash
-cd scivision
-jupyter notebook
-```
-
-Run `mapreader_plant_scivision.ipynb`.
+Follow the instructions at: https://github.com/scivision-gallery/plant-phenotyping-classification#how-to-run
