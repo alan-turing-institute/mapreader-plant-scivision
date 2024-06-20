@@ -15,10 +15,10 @@ from mapreader import load_patches
 from mapreader import patchTorchDataset
 
 class MapReader_model:
+    name: str
     
     def __init__(self, 
-                 model_path: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/model_checkpoint_10.pkl", 
-                 checkpoint_path: str="https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/checkpoint_10.pkl", 
+
                  device: str="default", 
                  tmp_model_dir: [str, None]=None,
                  tmp_slice_dir: [str, None]=None,
@@ -43,6 +43,10 @@ class MapReader_model:
         self.batch_size = batch_size
         self._resize2 = resize2
         self.infer_name = infer_name
+
+        if self.name = 'six_label':
+            model_path = "https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/model_checkpoint_10.pkl", 
+            checkpoint_path = "https://github.com/alan-turing-institute/mapreader-plant-scivision/raw/main/mapreader-plant-scivision/checkpoint_10.pkl", 
 
         # ---- DOWNLOAD MODEL
         self.download_file(checkpoint_path, path2save=os.path.join(self.tmp_model_dir, "checkpoint.pkl"))
