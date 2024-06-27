@@ -227,3 +227,30 @@ class MapReader_model:
         self.load_image(path2images, slice_size=slice_size, **slice_kwds)
         
         return self.inference(plot_output=plot_output)
+
+class branch(MapReader_model):
+    name = 'branch'
+
+class bud(MapReader_model):
+    name = 'bud'
+
+class five_label(MapReader_model):
+    name = 'five_label'
+
+class flower(MapReader_model):
+    name = 'flower'
+
+class green_and_plant(MapReader_model):
+    name = 'green_and_plant'
+
+class leaf(MapReader_model):
+    name = 'leaf'
+    
+class plant_binary(MapReader_model):
+    name = 'plant_binary'
+
+class pod(MapReader_model):
+    name = 'pod'
+    
+class six_label(MapReader_model):
+    name = 'six_label'
