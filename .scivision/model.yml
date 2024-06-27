@@ -1,5 +1,5 @@
 name: test
-url: https://github.com/alan-turing-institute/mapreader-plant-scivision.git
+url: https://github.com/alan-turing-institute/mapreader-plant-scivision/tree/evangeline-corcoran-patch-2.git
 import: mapreader-plant-scivision
 models:
     - model: branch
