@@ -45,28 +45,28 @@ class MapReader_model:
         self._resize2 = resize2
         self.infer_name = infer_name
 
-        if self.name = 'branch':
+        if self.name == 'branch':
             model_path = dict(url="doi:10.5281/zenodo.12532188/files/branch_model_checkpoint_21.pkl", known_hash = 'md5:a0f5596beab2330ee54cd144f0c167cb'), 
             checkpoint_path = dict(url="doi:10.5281/zenodo.12532188/files/branch_checkpoint_21.pkl", known_hash = 'md5:4a05ff6a690bfd3472bfff6c98f85b1e')
-        elif self.name = 'bud':
+        elif self.name == 'bud':
             model_path = dict(url="doi:10.5281/zenodo.12532188/files/bud_model_checkpoint_20.pkl", known_hash = 'md5:4cae0730ce3126fc2289489b5d6bd223'), 
             checkpoint_path = dict(url="doi:10.5281/zenodo.12532188/files/bud_checkpoint_20.pkl", known_hash = 'md5:7516dedcdf46451e9c77b01851d3115d')
-        elif self.name = 'five_label':
+        elif self.name == 'five_label':
             model_path = dict(url="doi:10.5281/zenodo.12532188/files/five_model_checkpoint_6.pkl", known_hash = 'md5:27d350ddb9606774531aa76ca2a7f71f'), 
             checkpoint_path = dict(url="doi:10.5281/zenodo.12532188/files/five_checkpoint_6.pkl", known_hash = 'md5:b3296b543b83e43d48ccb788725a3f49') 
-        elif self.name = 'flower':
+        elif self.name == 'flower':
             model_path = dict(url="doi:10.5281/zenodo.12532188/files/flower_model_checkpoint_35.pkl", known_hash = 'md5:e24fdee9f98acf1db14cf6f8fd41dbd1'), 
             checkpoint_path = dict(url="doi:10.5281/zenodo.12532188/files/flower_checkpoint_35.pkl", known_hash = 'md5:3920af2cdbab45eedf40db91b8e401b2') 
-        elif self.name = 'green_and_plant':
+        elif self.name == 'green_and_plant':
             model_path = dict(url="doi:10.5281/zenodo.12532188/files/green_model_checkpoint_10.pkl", known_hash = 'md5:822e7d1416200ffcd803aeb8e393f7aa'), 
             checkpoint_path = dict(url="doi:10.5281/zenodo.12532188/files/green_checkpoint_10.pkl", known_hash = 'md5:9a3638615ef8b907fc70c0919a926538')
-        elif self.name = 'leaf':
+        elif self.name == 'leaf':
             model_path = dict(url="doi:10.5281/zenodo.12532188/files/leaf_model_checkpoint_33.pkl", known_hash = 'md5:ceee6ce722b92a976f2077a5784f4811'), 
             checkpoint_path = dict(url="doi:10.5281/zenodo.12532188/files/leaf_checkpoint_33.pkl", known_hash = 'md5:ba05c0442a2fca6459970a79cc6a1898')
-        elif self.name = 'plant_binary':
+        elif self.name == 'plant_binary':
             model_path = dict(url="doi:10.5281/zenodo.12532188/files/plant_model_checkpoint_30.pkl", known_hash = 'md5:81528eae238d5fc984522a707c4fb83b'), 
             checkpoint_path = dict(url="doi:10.5281/zenodo.12532188/files/plant_checkpoint_30.pkl", known_hash = 'md5:c6aa53175fd1b21c1f55203649b7f53b')
-        elif self.name = 'pod':
+        elif self.name == 'pod':
             model_path = dict(url="doi:10.5281/zenodo.12532188/files/pod_model_checkpoint_29.pkl", known_hash = 'md5:88fd322da2270fe0d579ab1ad1df23e8'), 
             checkpoint_path = dict(url="doi:10.5281/zenodo.12532188/files/pod_checkpoint_29.pkl", known_hash = 'md5:9826caf4d13b6fd88643eb3e190728f6')
         else:
