@@ -95,16 +95,15 @@ class MapReader_model:
     #    """Download a file from url to path2save."""
 
     def download_file(self, 
-                      url: str=checkpoint_path['url'],
                       path2save: str="./mr_tmp/scivision_model.pkl",
                       chunk_size: int=1024
                       ):
         """Download a file from url to path2save."""    
-        print(f"[INFO] Download model from: {url}")
+        print(f"[INFO] Download model from: {self.checkpoint_path}")
 
         os.makedirs(os.path.dirname(path2save), exist_ok=True)
 
-        r = requests.get(url, stream=True)
+        r = requests.get(self.checkpoint_path, stream=True)
         with open(path2save, 'wb') as f:
             for chunk in r.iter_content(chunk_size=chunk_size): 
                 if chunk:
