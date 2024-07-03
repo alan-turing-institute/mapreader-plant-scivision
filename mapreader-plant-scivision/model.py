@@ -82,7 +82,7 @@ class MapReader_model:
 
         # ---- CLASSIFIER
         myclassifier = classifier(device=device)
-        myclassifier.load(os.path.join(self.tmp_model_dir, "checkpoint.pkl"))
+        myclassifier.load(self.checkpoint_path)
         self.pretrained_model = myclassifier
         
         # ---- PREPROCESSOR
