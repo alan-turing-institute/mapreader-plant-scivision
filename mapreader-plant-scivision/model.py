@@ -77,8 +77,8 @@ class MapReader_model:
         # ---- DOWNLOAD MODEL
         #self.download_file(checkpoint_path, path2save=os.path.join(self.tmp_model_dir, "checkpoint.pkl"))
         #self.download_file(model_path, path2save=os.path.join(self.tmp_model_dir, "model_checkpoint.pkl"))
-        self.model_path = pooch.retrieve(url=model_path[0]['url'], known_hash=model_path[0]['known_hash'])
-        self.checkpoint_path = pooch.retrieve(url=checkpoint_path['url'], known_hash=checkpoint_path['known_hash'])
+        self.model_path = pooch.retrieve(url=model_path[0]['url'], known_hash=model_path[0]['known_hash'], fname="model_"+self.name+".pkl")
+        self.checkpoint_path = pooch.retrieve(url=checkpoint_path['url'], known_hash=checkpoint_path['known_hash'], fname="model_checkpoint_"+self.name+".pkl")
 
         # ---- CLASSIFIER
         myclassifier = classifier(device=device)
@@ -95,23 +95,23 @@ class MapReader_model:
     #                  ):
     #    """Download a file from url to path2save."""
 
-    def download_file(self, 
-                      path2save: str="./mr_tmp/scivision_model.pkl",
-                      chunk_size: int=1024
-                      ):
-        """Download a file from url to path2save."""    
-        print(f"[INFO] Download model from: {self.checkpoint_path}")
+    # def download_file(self, 
+    #                   path2save: str="./mr_tmp/scivision_model.pkl",
+    #                   chunk_size: int=1024
+    #                   ):
+    #     """Download a file from url to path2save."""    
+    #     print(f"[INFO] Download model from: {self.checkpoint_path}")
 
-        os.makedirs(os.path.dirname(path2save), exist_ok=True)
+    #     os.makedirs(os.path.dirname(path2save), exist_ok=True)
 
-        r = requests.get(self.checkpoint_path, stream=True)
-        with open(path2save, 'wb') as f:
-            for chunk in r.iter_content(chunk_size=chunk_size): 
-                if chunk:
-                    f.write(chunk)
-        f.close()
+    #     r = requests.get(self.checkpoint_path, stream=True)
+    #     with open(path2save, 'wb') as f:
+    #         for chunk in r.iter_content(chunk_size=chunk_size): 
+    #             if chunk:
+    #                 f.write(chunk)
+    #     f.close()
         
-        print(f"[INFO] Save model         : {path2save}")
+    #     print(f"[INFO] Save model         : {path2save}")
 
     def load_image(self, 
                    input_array: str,
