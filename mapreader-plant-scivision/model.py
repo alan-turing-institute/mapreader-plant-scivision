@@ -77,8 +77,8 @@ class MapReader_model:
         # ---- DOWNLOAD MODEL
         #self.download_file(checkpoint_path, path2save=os.path.join(self.tmp_model_dir, "checkpoint.pkl"))
         #self.download_file(model_path, path2save=os.path.join(self.tmp_model_dir, "model_checkpoint.pkl"))
-        self.model_path = pooch.retrieve(url=model_path[0]['url'], known_hash=model_path[0]['known_hash'], fname="model_"+self.name+".pkl")
-        self.checkpoint_path = pooch.retrieve(url=checkpoint_path['url'], known_hash=checkpoint_path['known_hash'], fname="model_checkpoint_"+self.name+".pkl")
+        self.model_path = pooch.retrieve(url=model_path[0]['url'], known_hash=model_path[0]['known_hash'], fname="model_checkpoint_"+self.name+".pkl")
+        self.checkpoint_path = pooch.retrieve(url=checkpoint_path['url'], known_hash=checkpoint_path['known_hash'], fname="checkpoint_"+self.name+".pkl")
 
         # ---- CLASSIFIER
         myclassifier = classifier(device=device)
