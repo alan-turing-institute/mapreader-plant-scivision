@@ -33,14 +33,14 @@ class MapReader_model:
         """
 
         # ---- SETUP
-        if tmp_model_dir is None:
-            tmp_model_dir = f"./mr_tmp_{int(time.time())}"
-            tmp_slice_dir = f"./{tmp_model_dir}/slice"
+        # if tmp_model_dir is None:
+        #     tmp_model_dir = f"./mr_tmp_{int(time.time())}"
+        #     tmp_slice_dir = f"./{tmp_model_dir}/slice"
             
-        self.tmp_model_dir = tmp_model_dir
-        self.tmp_slice_dir = tmp_slice_dir 
-        os.makedirs(self.tmp_model_dir, exist_ok=True)
-        os.makedirs(self.tmp_slice_dir, exist_ok=True)
+        # self.tmp_model_dir = tmp_model_dir
+        # self.tmp_slice_dir = tmp_slice_dir 
+        # os.makedirs(self.tmp_model_dir, exist_ok=True)
+        # os.makedirs(self.tmp_slice_dir, exist_ok=True)
 
         self.batch_size = batch_size
         self._resize2 = resize2
@@ -82,7 +82,7 @@ class MapReader_model:
 
         # ---- CLASSIFIER
         myclassifier = classifier(device=device)
-        myclassifier.load(self.checkpoint_path)
+        myclassifier.load(self.checkpoint_path, force_device="cpu")
         self.pretrained_model = myclassifier
         
         # ---- PREPROCESSOR
