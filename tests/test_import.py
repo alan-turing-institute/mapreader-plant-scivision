@@ -4,9 +4,8 @@ import pytest
 def test_workflow():
     from scivision import default_catalog, load_pretrained_model, load_dataset
 
-    # models_catalog = default_catalog.models.to_dataframe()
-    #stp_repo = models_catalog[models_catalog.name == "mapreader-plant"].url.item()
-    stp_repo = 'https://raw.githubusercontent.com/alan-turing-institute/mapreader-plant-scivision/evangeline-corcoran-patch-2/.scivision/model.yml'
+    models_catalog = default_catalog.models.to_dataframe()
+    stp_repo = models_catalog[models_catalog.name == "mapreader-plant"].url.item()
     
     model = load_pretrained_model(stp_repo, allow_install=True, model_selection= "green_and_plant")
     
