@@ -7,7 +7,7 @@ def test_workflow():
     models_catalog = default_catalog.models.to_dataframe()
     stp_repo = models_catalog[models_catalog.name == "mapreader-plant"].url.item()
     
-    model = load_pretrained_model(stp_repo, allow_install=True)
+    model = load_pretrained_model(stp_repo, allow_install=True, model_selection= "green_and_plant")
     
     data_config = load_dataset('https://github.com/alan-turing-institute/mapreader-plant-scivision')
     
